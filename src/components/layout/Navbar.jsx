@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import SignedInLink from './SignedInLinks.jsx'
-import SignedOutLink from './SignedOutLink.jsx'
+import SignedOutLink from './SignedOutLinks.jsx'
 
 const Navbar = () => {
     return (
