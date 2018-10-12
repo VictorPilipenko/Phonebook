@@ -1,30 +1,13 @@
 import React from 'react'
-import { List, Card, Image } from 'semantic-ui-react'
+import { List } from 'semantic-ui-react'
+import ItemSummary from './ItemSummary.jsx'
 
 const ItemList = () => {
     return (
-        <List selection verticalAlign='middle'>
-            <Card>
-                <Image src='https://www.imgworlds.com/wp-content/themes/IMG/img/phase3/welcome/trex.png' />
-                <Card.Content>
-                    <Card.Header>Matthew</Card.Header>
-                    <Card.Meta>
-                        <span className='date'>Joined in 2018 by thejustvic</span>
-                    </Card.Meta>
-                    <Card.Description>Matthew is a musician living in Nashville.</Card.Description>
-                </Card.Content>
-            </Card>
-
-            <Card>
-                <Image src='https://www.imgworlds.com/wp-content/themes/IMG/img/phase3/welcome/trex.png' />
-                <Card.Content>
-                    <Card.Header>Matthew</Card.Header>
-                    <Card.Meta>
-                        <span className='date'>Joined in 2018 by thejustvic</span>
-                    </Card.Meta>
-                    <Card.Description>Matthew is a musician living in Nashville.</Card.Description>
-                </Card.Content>
-            </Card>
+        <List selection verticalAlign='left'>
+           <ItemSummary />
+           <ItemSummary />
+           <ItemSummary />
         </List>
     )
 
