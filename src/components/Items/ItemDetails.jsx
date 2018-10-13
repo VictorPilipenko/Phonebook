@@ -13,10 +13,10 @@ const ItemDetails = (props) => {
                         <Card.Content>
                             <Card.Header>Matthew Woon {id}</Card.Header>
 
-                            <Card.Description>Matthew is a musician living in Nashville.</Card.Description>
-                            <Card.Description>Matthew is a musician living in Nashville.</Card.Description>
-                            <Card.Description>Matthew is a musician living in Nashville.</Card.Description>
-                            <Card.Description>Matthew is a musician living in Nashville.</Card.Description>
+                            <Card.Description>phoneNumber</Card.Description>
+                            <Card.Description>company</Card.Description>
+                            <Card.Description>email</Card.Description>
+                        
                         </Card.Content>
                         <Card.Content extra>
                             <span className='date'>Joined in 2018 by thejustvic</span>

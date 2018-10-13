@@ -2,13 +2,20 @@ import React from 'react'
 import { List } from 'semantic-ui-react'
 import ItemSummary from './ItemSummary.jsx'
 
-const ItemList = () => {
+const ItemList = ({ items }) => {
     return (
         <List selection verticalAlign='left'>
-           <ItemSummary />
-           <ItemSummary />
-           <ItemSummary />
+            {items && items.map(item => {
+                return (
+
+                    <ItemSummary item={item} key={item.id} />
+
+
+                )
+            })
+            }
         </List>
+
     )
 
 }

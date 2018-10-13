@@ -1,13 +1,13 @@
 import React from 'react'
 import { List, Image } from 'semantic-ui-react'
 
-const ItemSummary = () => {
+const ItemSummary = ({item}) => {
     return (
         <List.Item>
-            <Image avatar src='https://www.imgworlds.com/wp-content/themes/IMG/img/phase3/welcome/trex.png' width="32" height="32" alt="Awesome" />
+            <Image avatar src={item.photo} width="32" height="32" alt="Awesome" />
             <List.Content>
-                <List.Header>Matthew Woon</List.Header>
-                <List.Description>Proger</List.Description>
+                <List.Header>{item.lastName} {item.firstName} {item.id}</List.Header>
+               
             </List.Content>
         </List.Item>
     )
