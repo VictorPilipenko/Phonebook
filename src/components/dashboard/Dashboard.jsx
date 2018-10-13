@@ -3,7 +3,9 @@ import Notifications from './Notifications.jsx'
 import ItemList from '../items/ItemList.jsx'
 
 import { connect } from 'react-redux'
-
+import { firestoreConnect } from 'react-redux-firebase'
+import { compose } from 'redux'
+ 
 class Dashboard extends Component {
    
     render() {
@@ -26,8 +28,13 @@ class Dashboard extends Component {
 
 const mapStateToProps = (state) => {
     return{
-        items: state.item.items
+        items: state.firestore.ordered.items
     }
 }
 
-export default connect(mapStateToProps)(Dashboard)
+export default compose(
+    connect(mapStateToProps),
+    firestoreConnect([
+        { collection: 'items' }
+    ])
+)(Dashboard)

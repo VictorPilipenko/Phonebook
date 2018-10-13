@@ -24,9 +24,14 @@ const initState = {
 const itemReducer = (state = initState, action) => {
     switch(action.type){
         case 'CREATE_ITEM':
-        console.log('created item', action.item)
+            console.log('created item', action.item)
+            return state;
+        case 'CREATE_ITEM_ERROR':
+            console.log('created item error', action.err)
+            return state;
+        default:
+            return state;
     }
-    return state
 }
 
 export default itemReducer
