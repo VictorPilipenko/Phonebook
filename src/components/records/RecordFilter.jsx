@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { filterText } from '../../store/actions/filterActions';
 import { Input } from 'semantic-ui-react'
 
-const ItemFilter = (props) => (
+const RecordFilter = (props) => (
     <div style={{ marginBottom: 10 }}>
         <Input icon='users' iconPosition='left' placeholder='Search...' type='text' value={props.filter.text}
             onChange={(e) => {
@@ -18,4 +18,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(ItemFilter);
+export default connect(mapStateToProps)(RecordFilter);

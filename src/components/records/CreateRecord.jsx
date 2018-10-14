@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { createItem } from '../../store/actions/itemActions'
+import { createRecord } from '../../store/actions/recordActions'
 import { Redirect } from 'react-router-dom'
 
-class CreateItem extends Component {
+class CreateRecord extends Component {
     state = {
         phoneNumber: '',
         lastName: '',
@@ -20,7 +20,7 @@ class CreateItem extends Component {
     handleSubmit = (e) => {
         e.preventDefault();
         //console.log(this.state);
-        this.props.createItem(this.state);
+        this.props.createRecord(this.state);
         this.props.history.push('/');
     }
     render() {
@@ -30,7 +30,7 @@ class CreateItem extends Component {
         return (
             <div className="container">
                 <form onSubmit={this.handleSubmit} className="white">
-                    <h5 className="grey-text text-darken-3">Create new item</h5>
+                    <h5 className="grey-text text-darken-3">Create new record</h5>
                     <div className="input-field">
                         <label htmlFor="phoneNumber">Phone Number</label>
                         <input type="text" id="phoneNumber" onChange={this.handleChange} />
@@ -72,8 +72,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        createItem: (item) => dispatch(createItem(item))
+        createRecord: (record) => dispatch(createRecord(record))
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CreateItem)
+export default connect(mapStateToProps, mapDispatchToProps)(CreateRecord)

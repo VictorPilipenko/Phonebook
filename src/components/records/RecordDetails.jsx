@@ -5,26 +5,26 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 import moment from 'moment'
 
-const ItemDetails = (props) => {
+const RecordDetails = (props) => {
     //console.log(props);
     //const id = props.match.params.id;
 
-    const { item } = props;
-    if(item){
+    const { record } = props;
+    if(record){
         return (
             <div style={{ padding: 10 }} className="dashboard container">
                 <div className="row">
                     <div className="col s12 m10">
                         <Card>
-                            <Image src={item.photo} />
+                            <Image src={record.photo} />
                             <Card.Content>
-                                <Card.Header>{item.firstName} {item.lastName}</Card.Header>
-                                <Card.Description>{item.phoneNumber}</Card.Description>
-                                <Card.Description>{item.company}</Card.Description>
-                                <Card.Description>{item.email}</Card.Description>
+                                <Card.Header>{record.firstName} {record.lastName}</Card.Header>
+                                <Card.Description>{record.phoneNumber}</Card.Description>
+                                <Card.Description>{record.company}</Card.Description>
+                                <Card.Description>{record.email}</Card.Description>
                             </Card.Content>
                             <Card.Content extra>
-                                <span className='date'>Joined: {moment(item.createdAt.toDate()).calendar()} by {item.authorFirstName} {item.authorLastName}</span>
+                                <span className='date'>Joined: {moment(record.createdAt.toDate()).calendar()} by {record.authorFirstName} {record.authorLastName}</span>
                             </Card.Content>
                         </Card>
                     </div>
@@ -34,7 +34,7 @@ const ItemDetails = (props) => {
     }else{
         return(
             <div className="container center">
-                <p>Loading item...</p>
+                <p>Loading record...</p>
             </div>
         )
     }
@@ -43,16 +43,16 @@ const ItemDetails = (props) => {
 
 const mapStateToProps = (state, ownProps) => {
     const id = ownProps.match.params.id;
-    const items = state.firestore.data.items;
-    const item = items ? items[id] : null
+    const records = state.firestore.data.records;
+    const record = records ? records[id] : null
     return{
-        item: item
+        record: record
     }
 }
 
 export default compose(
     connect(mapStateToProps),
     firestoreConnect([
-        { collection: 'items' }
+        { collection: 'records' }
     ])
-)(ItemDetails)
+)(RecordDetails)

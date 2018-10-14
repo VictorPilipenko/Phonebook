@@ -1,15 +1,15 @@
 import React from 'react'
 import { List } from 'semantic-ui-react'
-import ItemSummary from './ItemSummary.jsx'
+import RecordSummary from './RecordSummary.jsx'
 import { Link } from 'react-router-dom'
 
-const ItemList = ({ items }) => {
+const RecordList = ({ records }) => {
     return (
         <List selection verticalAlign='middle'>
-            {items && items.map(item => {
+            {records && records.map(record => {
                 return (
-                    <Link to={'/item/' + item.id} key={item.id} >
-                        <ItemSummary item={item} />
+                    <Link to={'/record/' + record.id} key={record.id} >
+                        <RecordSummary record={record} />
                     </Link>
                 )
             })
@@ -18,4 +18,4 @@ const ItemList = ({ items }) => {
     )
 }
 
-export default ItemList
+export default RecordList
