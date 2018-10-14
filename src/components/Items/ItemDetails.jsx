@@ -1,9 +1,9 @@
 import React from 'react'
 import { Card, Image } from 'semantic-ui-react'
-
 import { connect } from 'react-redux'
 import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
+import moment from 'moment'
 
 const ItemDetails = (props) => {
     //console.log(props);
@@ -24,7 +24,7 @@ const ItemDetails = (props) => {
                                 <Card.Description>{item.email}</Card.Description>
                             </Card.Content>
                             <Card.Content extra>
-                                <span className='date'>Joined in 2018 by {item.authorFirstName} {item.authorLastName}</span>
+                                <span className='date'>Joined: {moment(item.createdAt.toDate()).calendar()} by {item.authorFirstName} {item.authorLastName}</span>
                             </Card.Content>
                         </Card>
                     </div>

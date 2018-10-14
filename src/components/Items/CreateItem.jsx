@@ -21,6 +21,7 @@ class CreateItem extends Component {
         e.preventDefault();
         //console.log(this.state);
         this.props.createItem(this.state);
+        this.props.history.push('/');
     }
     render() {
         const { auth } = this.props;
@@ -58,8 +59,6 @@ class CreateItem extends Component {
                         <button className="btn pink lighten-1 z-depht-0">Create</button>
                     </div>
                 </form>
-
-
             </div>
         )
     }
