@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const ItemList = ({ items }) => {
     return (
-        <List selection verticalAlign='left'>
+        <List selection verticalAlign='middle'>
             {items && items.map(item => {
                 return (
                     <Link to={'/item/' + item.id}>
@@ -15,9 +15,7 @@ const ItemList = ({ items }) => {
             })
             }
         </List>
-
     )
-
 }
 
 export default ItemList

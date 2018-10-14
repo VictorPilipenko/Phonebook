@@ -6,15 +6,15 @@ import { firestoreConnect } from 'react-redux-firebase'
 import { compose } from 'redux'
 
 const ItemDetails = (props) => {
-    console.log(props);
+    //console.log(props);
     //const id = props.match.params.id;
 
     const { item } = props;
     if(item){
         return (
-            <div className="dashboard container">
+            <div style={{ padding: 10 }} className="dashboard container">
                 <div className="row">
-                    <div className="col s12 m6">
+                    <div className="col s12 m10">
                         <Card>
                             <Image src={item.photo} />
                             <Card.Content>
