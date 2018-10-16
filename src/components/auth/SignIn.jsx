@@ -4,6 +4,7 @@ import { signIn } from '../../store/actions/authActions'
 import { Redirect } from 'react-router-dom'
 import { reduxForm, Field } from 'redux-form';
 import { Input } from 'semantic-ui-react'
+import { bindActionCreators } from 'redux';
 
 class SignIn extends Component {
     constructor(props) {
@@ -15,6 +16,7 @@ class SignIn extends Component {
         //console.log(this.state);
         this.props.signIn(props)
     }
+
     render() {
         const { authError, auth } = this.props;
         if (auth.uid) return <Redirect to='/' />
@@ -27,15 +29,11 @@ class SignIn extends Component {
                     <h5 className="grey-text text-darken-3">Sign In</h5>
                     <Field name="email" component={renderField} type="text" placeholder="email" />
                     <Field name="password" component={renderField} type="password" placeholder="password" />
-
                     <button type="submit" className="btn pink lighten-1 z-depht-0">Sign In</button>
                     <div className="red-text center">
                         {authError ? <p>{authError}</p> : null}
                     </div>
-
                 </form>
-
-
             </div>
         )
     }
@@ -64,9 +62,9 @@ const validate = props => {
         errors.email = "please provide valid email";
     }
 
-    if(props.password && props.password.length < 6) {
+    if (props.password && props.password.length < 6) {
         errors.password = "minimum 6 characters";
-      }
+    }
 
     return errors;
 };
@@ -78,10 +76,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        signIn: (creds) => dispatch(signIn(creds))
-    }
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({
+        signIn
+    }, dispatch);
 }
 
 SignIn = reduxForm({ form: 'SignIn', validate })(SignIn);

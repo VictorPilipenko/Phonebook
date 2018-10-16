@@ -2,9 +2,10 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { signOut } from '../../store/actions/authActions'
+import { bindActionCreators } from 'redux';
 
 const SignedInLinks = (props) => {
-    
+
     return (
         <ul className="right">
             <li><NavLink to='/create'>New Record</NavLink></li>
@@ -14,11 +15,10 @@ const SignedInLinks = (props) => {
     )
 }
 
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        signOut: () => dispatch(signOut())
-    }
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({
+        signOut
+    }, dispatch);
 }
 
 export default connect(null, mapDispatchToProps)(SignedInLinks)

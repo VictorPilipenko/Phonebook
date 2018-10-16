@@ -4,6 +4,7 @@ import { createRecord } from '../../store/actions/recordActions'
 import { Redirect } from 'react-router-dom'
 import { reduxForm, Field } from 'redux-form';
 import { Input } from 'semantic-ui-react'
+import { bindActionCreators } from 'redux';
 
 class CreateRecord extends Component {
     constructor(props) {
@@ -16,13 +17,12 @@ class CreateRecord extends Component {
         this.props.createRecord(props);
         this.props.history.push('/');
     }
+
     render() {
         const { auth } = this.props;
         if (!auth.uid) return <Redirect to='/signin' />
 
         const { handleSubmit } = this.props;
-
-        
 
         return (
             <div className="container">
@@ -81,12 +81,11 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        createRecord: (record) => dispatch(createRecord(record))
-    }
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({
+        createRecord
+    }, dispatch);
 }
-
 CreateRecord = reduxForm({ form: 'CreateRecord', validate })(CreateRecord);
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateRecord)

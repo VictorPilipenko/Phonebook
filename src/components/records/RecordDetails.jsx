@@ -12,7 +12,7 @@ const RecordDetails = (props) => {
     const { record } = props;
     if(record){
         return (
-            <div style={{ padding: 10 }} className="dashboard container">
+            <div style={{ padding: 30 }} className="dashboard container">
                 <div className="row">
                     <div className="col s12 m10">
                         <Card>

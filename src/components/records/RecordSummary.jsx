@@ -6,8 +6,7 @@ const RecordSummary = ({record}) => {
         <List.Item style={{ padding: 10 }}>
             <Image avatar src={record.photo} width="32" height="32" alt="Awesome" />
             <List.Content>
-                <List.Header>{record.lastName} {record.firstName}</List.Header>
-               
+                <List.Header>{record.firstName} {record.lastName}</List.Header>
             </List.Content>
         </List.Item>
     )

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { signUp } from '../../store/actions/authActions'
 import { reduxForm, Field } from 'redux-form';
 import { Input } from 'semantic-ui-react'
+import { bindActionCreators } from 'redux';
 
 class SignUp extends Component {
     constructor(props) {
@@ -13,7 +14,7 @@ class SignUp extends Component {
 
     handleFormSubmit = (props) => {
         //console.log(this.state);
-        this.props.signUn(props)
+        this.props.signUp(props)
     }
     render() {
         const { auth, authError } = this.props;
@@ -65,9 +66,17 @@ const validate = props => {
         errors.email = "please provide valid email";
     }
 
-    if(props.password && props.password.length < 6) {
+    if (props.password && props.password.length < 6) {
         errors.password = "minimum 6 characters";
-      }
+    }
+
+    if (props.lastName && props.lastName.length < 2) {
+        errors.lastName = "minimum 2 characters";
+    }
+
+    if (props.firstName && props.firstName.length < 2) {
+        errors.firstName = "minimum 2 characters";
+    }
 
     return errors;
 };
@@ -79,10 +88,10 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        signUp: (creds) => dispatch(signUp(creds))
-    }
+const mapDispatchToProps = dispatch => {
+    return bindActionCreators({
+        signUp
+    }, dispatch);
 }
 
 SignUp = reduxForm({ form: 'SignUp', validate })(SignUp);

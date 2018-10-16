@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const RecordList = ({ records }) => {
     return (
-        <List selection verticalAlign='middle'>
+        <List verticalAlign='left'>
             {records && records.map(record => {
                 return (
                     <Link to={'/record/' + record.id} key={record.id} >
