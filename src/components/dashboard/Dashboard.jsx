@@ -12,9 +12,9 @@ class Dashboard extends Component {
    
     render() {
         const { records, notifications } = this.props;
-
+        console.log(this.props);
         return (
-            <div style={{ padding: 10 }} className="dashboard container">
+            <div className="dashboard container">
                 <div className="row">
                     <div className="col s12 m3">
                         <RecordFilter />
